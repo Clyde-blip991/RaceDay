@@ -1,0 +1,9 @@
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.csproj.AssemblyReference.cache
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.AssemblyInfoInputs.cache
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.AssemblyInfo.cs
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.csproj.CoreCompileInputs.cache
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Student\Documents\RaceDay\RaceDay.API\RaceDay.API\obj\Debug\net8.0\RaceDay.API.sourcelink.json
