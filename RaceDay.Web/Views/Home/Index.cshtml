@@ -1,0 +1,46 @@
+﻿@model List<RaceDay.Web.Models.EventSummary>
+@{
+    ViewData["Title"] = "Home";
+    var role = ViewBag.Role as string;
+}
+
+<h2 class="mb-2">Welcome</h2>
+<p class="text-muted mb-4">Signed in as <strong>@role</strong></p>
+
+@if (role == "Organiser")
+{
+    <p>You can see and manage the events you organise.</p>
+}
+else
+{
+    <p>Browse upcoming events and choose a category to enter.</p>
+}
+
+<h4 class="mt-4">Upcoming events</h4>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">No events yet.</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Type</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ev in Model)
+            {
+                <tr>
+                    <td>@ev.EventName</td>
+                    <td>@ev.EventType</td>
+                    <td>@ev.EventDate.ToString("dd MMM yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
