@@ -31,9 +31,13 @@ namespace RaceDay.Web.Services
             return (response.IsSuccessStatusCode, (int)response.StatusCode, body);
         }
 
-        public async Task<(bool ok, int status, string body)> GetAsync(string path)
+        public async Task<(bool ok, int status, string body)> GetAsync(string path, int? userId = null)
         {
-            var response = await Client.GetAsync(path);
+            var request = new HttpRequestMessage(HttpMethod.Get, path);
+            if (userId.HasValue)
+                request.Headers.Add("X-User-Id", userId.Value.ToString());
+
+            var response = await Client.SendAsync(request);
             var body = await response.Content.ReadAsStringAsync();
             return (response.IsSuccessStatusCode, (int)response.StatusCode, body);
         }

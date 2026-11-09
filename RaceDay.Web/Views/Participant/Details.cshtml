@@ -1,0 +1,56 @@
+﻿@model RaceDay.Web.Models.EventDetails
+@{
+    ViewData["Title"] = Model.EventName;
+}
+
+<h2 class="mb-1">@Model.EventName</h2>
+<p class="text-muted mb-3">
+    @Model.EventType &middot; @Model.EventDate.ToString("dd MMM yyyy")
+</p>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<p>@Model.Description</p>
+<p><strong>Route:</strong> @Model.RouteInfo</p>
+
+<h4 class="mt-4">Categories</h4>
+
+@if (!Model.Categories.Any())
+{
+    <div class="alert alert-warning">No categories available for this event.</div>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Distance</th>
+                <th>Entry fee</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model.Categories)
+            {
+                <tr>
+                    <td>@c.CategoryName</td>
+                    <td>@c.DistanceKm km</td>
+                    <td>R @c.EntryFee.ToString("0.00")</td>
+                    <td class="text-end">
+                        <form method="post" asp-controller="Participant" asp-action="Enrol">
+                            <input type="hidden" name="categoryId" value="@c.CategoryId" />
+                            <input type="hidden" name="eventId" value="@Model.EventId" />
+                            <button type="submit" class="btn btn-success btn-sm">Enrol</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-controller="Home" asp-action="Index">Back to events</a>

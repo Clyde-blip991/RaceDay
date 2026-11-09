@@ -1,0 +1,36 @@
+﻿@model List<RaceDay.Web.Models.EnrolmentInfo>
+@{
+    ViewData["Title"] = "My enrolments";
+}
+
+<h2 class="mb-3">My enrolments</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">You have not enrolled in any events yet.</div>
+}
+else
+{
+    <table class="table table-striped align-middle">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Category</th>
+                <th>Enrolled on</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in Model)
+            {
+                var badge = e.Status == "Confirmed" ? "bg-success" : e.Status == "Pending" ? "bg-warning text-dark" : "bg-secondary";
+                <tr>
+                    <td>@e.EventName</td>
+                    <td>@e.CategoryName</td>
+                    <td>@e.EnrolmentDate.ToString("dd MMM yyyy")</td>
+                    <td><span class="badge @badge">@e.Status</span></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,48 @@
+﻿@model RaceDay.Web.Models.CreateEventForm
+@{
+    ViewData["Title"] = "Create event";
+}
+
+<div class="container" style="max-width: 600px;">
+    <h2 class="mb-4">Create event</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form method="post" asp-controller="Organiser" asp-action="Create">
+        <div class="mb-3">
+            <label class="form-label">Event name</label>
+            <input asp-for="EventName" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Event type</label>
+            <select asp-for="EventType" class="form-select">
+                <option value="Running">Running</option>
+                <option value="Walking">Walking</option>
+                <option value="Cycling">Cycling</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            <input asp-for="EventDate" type="date" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Venue ID</label>
+            <input asp-for="VenueId" type="number" class="form-control" required />
+            <div class="form-text">Use 1 (Union Buildings), 2 (Sea Point Promenade) or 3 (Pietermaritzburg).</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Route info</label>
+            <input asp-for="RouteInfo" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-success w-100">Create event</button>
+    </form>
+
+    <p class="mt-3 text-center"><a asp-controller="Organiser" asp-action="Events">Back to my events</a></p>
+</div>

@@ -36,7 +36,7 @@ else
             @foreach (var ev in Model)
             {
                 <tr>
-                    <td>@ev.EventName</td>
+                    <td><a asp-controller="Participant" asp-action="Details" asp-route-id="@ev.EventId">@ev.EventName</a></td>
                     <td>@ev.EventType</td>
                     <td>@ev.EventDate.ToString("dd MMM yyyy")</td>
                 </tr>
