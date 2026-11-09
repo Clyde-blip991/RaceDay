@@ -29,6 +29,10 @@
                         {
                             <li class="nav-item"><a class="nav-link" asp-controller="Participant" asp-action="MyEnrolments">My enrolments</a></li>
                         }
+                        @if (Context.Session.GetString("Role") == "Participant")
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-controller="Participant" asp-action="MyResults">My results</a></li>
+                        }
                         @if (Context.Session.GetInt32("UserId") != null)
                         {
                             <li class="nav-item">

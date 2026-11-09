@@ -54,5 +54,17 @@ namespace RaceDay.Web.Controllers
             var list = JsonSerializer.Deserialize<List<EnrolmentInfo>>(body, Json) ?? new();
             return View(list);
         }
+
+        public async Task<IActionResult> MyResults()
+        {
+            if (!IsParticipant()) return RedirectToAction("Login", "Account");
+
+            var userId = HttpContext.Session.GetInt32("UserId")!.Value;
+            var (ok, _, body) = await _api.GetAsync("api/results/me", userId);
+            if (!ok) return View(new List<ResultInfo>());
+
+            var list = JsonSerializer.Deserialize<List<ResultInfo>>(body, Json) ?? new();
+            return View(list);
+        }
     }
 }
