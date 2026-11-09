@@ -207,3 +207,21 @@ Part 2 demonstration: [https://youtu.be/9Vrv3bPwFkU]]
  Commits
 
 This project follows best practices with meaningful, atomic commits reflecting real development work.)
+
+## Part 3: MVC Web Application
+
+The RaceDay web front end is an ASP.NET Core MVC app that consumes the Part 2 API. It handles login and registration with session storage, role-based navigation, the Organiser event and result pages, and the Participant browsing, enrolment and results pages.
+
+### Run locally
+
+1. Run `docs/raceday_database.sql` in SQL Server Management Studio.
+2. Start the API: `dotnet run` in `RaceDay.API/RaceDay.API` (listens on http://localhost:5075).
+3. Start the web app: `dotnet run` in `RaceDay.Web` (listens on http://localhost:5138).
+
+### Run in Docker
+
+Then open http://localhost:8080. The API must still be running on port 5075.
+
+### Video walkthrough (Part 3)
+
+[https://youtu.be/Pygt9QrEI-U]
