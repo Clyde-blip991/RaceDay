@@ -5,14 +5,20 @@ namespace RaceDay.Web.Services
     public class ApiClient
     {
         private readonly IHttpClientFactory _factory;
-        public ApiClient(IHttpClientFactory factory) { _factory = factory; }
+        private readonly string _baseUrl;
+
+        public ApiClient(IHttpClientFactory factory, IConfiguration config)
+        {
+            _factory = factory;
+            _baseUrl = config["ApiBaseUrl"] ?? "http://localhost:5075/";
+        }
 
         private HttpClient Client
         {
             get
             {
                 var client = _factory.CreateClient();
-                client.BaseAddress = new Uri("http://localhost:5075/");
+                client.BaseAddress = new Uri(_baseUrl);
                 return client;
             }
         }
